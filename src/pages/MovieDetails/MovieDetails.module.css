@@ -1,0 +1,38 @@
+.goback {
+  background-color: white;
+  border-color: #82c25c;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.2);
+  height: 30px;
+  width: 70px;
+  margin: 10px 0px;
+}
+
+.goback:hover {
+  background-color: #82c25c;
+}
+
+.wrapper {
+  display: flex;
+  gap: 18px;
+  border-bottom: 2px solid grey;
+}
+.image {
+  display: block;
+  margin: 0;
+  width: 300px;
+  height: 450px;
+  border: 1px solid grey;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.link:hover {
+  text-decoration: underline;
+}
+.li {
+  list-style: none;
+  color: black;
+}

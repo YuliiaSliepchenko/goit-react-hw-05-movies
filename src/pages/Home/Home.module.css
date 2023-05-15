@@ -1,0 +1,12 @@
+.link {
+  text-decoration: none;
+  color: black;
+}
+.link:hover {
+  text-decoration: underline;
+  color: #82c25c;
+}
+.li {
+  list-style: none;
+  color: black;
+}

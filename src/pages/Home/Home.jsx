@@ -1,38 +1,38 @@
-import { NavLink } from 'react-router-dom';
-// import cslx from 'cslx';
-import styled from "styled-components";
+import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { getTranding } from 'helpers/movieApi';
+import s from './Home.module.css';
 
-
-const StyledNavLink = styled(NavLink)`
-display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #fff;
-  border: 1px solid rgb(232, 235, 232);
-  border-radius: 8px;
-
-  &.active {
-    border-color: red;
-    color: orange;
-  }`;
-
-
-const Header = () => {
+const Home = () => {
+  const [movies, setMovies] = useState();
+  const location = useLocation();
+  const homeMarkup = () => {
     return (
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <StyledNavLink to='/'>Home</StyledNavLink>
-                    </li>
-                    <li>
-                        <StyledNavLink to="/movies">Movies</StyledNavLink>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+      <>
+        <h1>Trending Today</h1>
+        <ul className={s.li}>
+          {movies.map(({ title, id }) => (
+            <Link
+              className={s.link}
+              key={id}
+              state={{ from: location }}
+              to={`movies/${id}`}
+            >
+              <li>{title}</li>
+            </Link>
+          ))}
+        </ul>
+      </>
     );
+  };
+  useEffect(() => {
+    getTranding()
+      .then(response => {
+        setMovies(response.results);
+      })
+      .catch(err => console.log(err));
+  }, []);
+  return movies && homeMarkup();
 };
-export default Header;
+
+export default Home;
