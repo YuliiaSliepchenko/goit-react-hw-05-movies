@@ -19,6 +19,7 @@
 }
 .link:hover {
   text-decoration: underline;
+  color: #82c25c;
 }
 .input {
   background-color: white;
@@ -32,8 +33,4 @@
 .li {
   list-style: none;
   color: black;
-}
-.li:hover {
-  text-decoration: underline;
-  color: #82c25c;
 }
